@@ -1,0 +1,23 @@
+{
+    "name": "storage",
+    "version": "1.0.0",
+    "description": "Distributed storage system for OmniBazaar",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "monitor": "node monitor.js",
+        "test": "jest",
+        "build": "tsc",
+        "lint": "eslint . --ext .ts",
+        "type-check": "tsc --noEmit"
+    },
+    "dependencies": {
+        "ipfs": "^0.60.0",
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "typescript": "^4.5.4",
+        "jest": "^27.4.5",
+        "eslint": "^8.10.0"
+    }
+}

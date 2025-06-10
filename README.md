@@ -1,77 +1,73 @@
-# Storage
+# OmniBazaar Storage
 
-Code and documents for distributed storage system and infrastructure.
+The Storage module handles data persistence and IPFS operations for the OmniBazaar platform.
 
-This module will be the Listing Node module. It will store user listings in IPFS (as NFTs) and operate the DHT to enable product listing lookup.
+## Directory Structure
 
-Reference the legacy OmniBazaar code for the general design and actions of a listing node.
+```
+src/
+├── ipfs/      # IPFS node and operations
+├── listing/   # Listing storage and management
+└── api/       # API endpoints and interfaces
+```
 
-This module, the chat module, and the validator module will almost certainly be published together in a single browser extension and/or a stand-alone app. Use of this app by users will form the distributed infrastructure of OmniBazaar, OmniCoin, and the distributed chat system of OmniBazaar.
+## Components
+
+### IPFS
+- `node.ts`: IPFS node configuration and operations
+- `pinning.ts`: Content pinning management
+- `gateway.ts`: IPFS gateway interface
+
+### Listing
+- `metadata.ts`: Listing metadata handling
+- `storage.ts`: Listing storage operations
+- `indexing.ts`: Search indexing and management
+
+### API
+- `listing.ts`: Listing-related API endpoints
+- `search.ts`: Search functionality API
 
 ## Features
 
-- Distributed storage using IPFS
-- NFT-based listing storage
-- DHT for product listing lookup
-- Integration with chat and validator modules
+- IPFS node management
+- Content pinning and unpinning
+- Listing metadata storage
+- Search indexing
+- API endpoints for data access
 
-## Installation
+## Integration
 
-1. Clone the repository:
-
-```bash
-git clone https://github.com/OmniBazaar/Storage.git
-cd Storage
-```
-
-1. Install dependencies:
-
-```bash
-npm install
-```
-
-1. Create a `.env` file with your configuration:
-
-```bash
-IPFS_API_URL=your_ipfs_api_url
-```
-
-## Usage
-
-1. Start the storage node:
-
-```bash
-npm run start
-```
-
-1. Monitor the node:
-
-```bash
-npm run monitor
-```
+This module integrates with:
+- Bazaar module for marketplace data
+- Wallet module for transaction data
+- Smart contracts for on-chain data
 
 ## Development
 
-1. Run tests:
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-```bash
-npm test
-```
+2. Configure IPFS node:
+   ```typescript
+   const config = {
+     ipfs: {
+       host: 'localhost',
+       port: 5001,
+       protocol: 'http'
+     },
+     pinning: {
+       enabled: true
+     }
+   };
+   ```
 
-1. Build the project:
+3. Run tests:
+   ```bash
+   npm test
+   ```
 
-```bash
-npm run build
-```
+## Contributing
 
-1. Lint the code:
-
-```bash
-npm run lint
-```
-
-1. Run type checking:
-
-```bash
-npm run type-check
-```
+Please refer to the project's RULES.md for development guidelines and standards.
